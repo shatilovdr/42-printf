@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/31 17:42:18 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/10/31 17:45:26 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	c;
-
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	write (fd, &c, 1);
 }

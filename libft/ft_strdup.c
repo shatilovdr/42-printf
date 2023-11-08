@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:23:19 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 10:40:59 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/27 10:06:41 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/08 09:34:36 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+static char	*ft_strcpy(char *dest, char *src);
+
+char	*ft_strdup(const char *s1)
 {
-	size_t	pos;
 	int		len;
-	va_list	args;
+	char	*dest;
 
-	va_start(args, str);
-	pos = 0;
-	len = 0;
-	while (str[pos])
+	len = ft_strlen(s1) + 1;
+	dest = (char *)malloc(len * sizeof(char));
+	if (!dest)
+		return (0);
+	ft_strcpy(dest, (char *)s1);
+	return (dest);
+}
+
+static char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (*(src + i))
 	{
-		if (str[pos] == '%')
-		{
-			len += ft_switch((char *)&str[++pos], &args);
-			pos++;
-			continue ;
-		}
-		ft_putchar_fd(str[pos++], 1);
-		len++;
+		*(dest + i) = *(src + i);
+		i++;
 	}
-	return (len);
+	*(dest + i) = 0;
+	return (dest);
 }

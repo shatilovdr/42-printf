@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/31 16:23:12 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/01 17:02:07 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	c;
+	size_t	i;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (*(s + i) != 0)
+	{
+		f(i, s + i);
+		i++;
+	}
 }

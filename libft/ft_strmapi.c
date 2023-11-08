@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/31 16:14:54 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/01 16:59:27 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	c;
+	char	*res;
+	size_t	i;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	if (!s || !f)
+		return (0);
+	i = ft_strlen(s);
+	res = (char *)malloc(sizeof(char) * (i + 1));
+	if (!res)
+		return (0);
+	i = 0;
+	while (*(s + i) != 0)
+	{
+		*(res + i) = f(i, *(s + i));
+		i++;
+	}
+	*(res + i) = 0;
+	return (res);
 }

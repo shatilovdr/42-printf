@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/31 17:53:49 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/01 16:58:53 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	c;
-
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	if (!s || !fd)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

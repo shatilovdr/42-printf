@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/23 13:40:29 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/04 11:34:38 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+int	ft_isprint(int ch)
 {
-	char	c;
-
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	if (ch >= 32 && ch <= 126)
+		return (ch);
+	return (0);
 }

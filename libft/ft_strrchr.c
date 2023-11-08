@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/26 12:06:12 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/04 12:13:23 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	c;
+	size_t	s_len;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	s_len = ft_strlen(s);
+	if ((unsigned char) c == 0)
+		return ((char *)s + s_len);
+	while (s_len > 0)
+	{
+		if (*(s + s_len) == (unsigned char) c)
+			return ((char *)s + s_len);
+		s_len--;
+	}
+	if (*s == (unsigned char) c)
+		return ((char *)s);
+	return (0);
 }

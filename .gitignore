@@ -1,6 +1,7 @@
 *.pdf
 .vscode/
 .DS_Store
-# *.a
+*.a
 *.o
 *.out
+main.c

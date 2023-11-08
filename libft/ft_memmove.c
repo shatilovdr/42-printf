@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/23 15:31:11 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/10/25 17:56:09 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	c;
+	size_t	i;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	if (dst == 0 && src == 0)
+		return (0);
+	i = 0;
+	if (dst > src)
+	{
+		while (i < len)
+		{
+			*((unsigned char *)dst + len - 1 - i)
+				= *((unsigned char *)src + len - 1 - i);
+			i++;
+		}
+	}
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
 }

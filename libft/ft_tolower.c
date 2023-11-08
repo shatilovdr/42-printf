@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/07 18:43:51 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/26 11:54:25 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/10/26 12:04:30 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_ptr(va_list *args)
+int	ft_tolower(int c)
 {
-	size_t	ptr;
-
-	ptr = (size_t) va_arg(*args, void *);
-	printf("%zu", ptr);
-	return (ptr);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

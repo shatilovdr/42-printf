@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_num_len_base_positive.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/11/08 13:55:02 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/08 17:59:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(va_list *args)
+int	ft_num_len_base_positive(unsigned long num, int base)
 {
-	char	c;
+	int	len;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	len = 0;
+	if (num == 0)
+		return (1);
+	while (num)
+	{
+		num /= base;
+		len++;
+	}
+	return (len);
 }

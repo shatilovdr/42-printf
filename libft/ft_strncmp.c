@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:46:22 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 17:21:01 by dshatilo         ###   ########.fr       */
+/*   Created: 2023/10/23 15:28:23 by dshatilo          #+#    #+#             */
+/*   Updated: 2023/11/04 11:52:51 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(va_list *args)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	c;
+	size_t	i;
 
-	c = (char)va_arg(*args, int);
-	return (ft_putchar(c));
+	i = 0;
+	while (i != n)
+	{
+		if ((unsigned char)*(s1 + i) - (unsigned char)*(s2 + i))
+			return ((unsigned char)*(s1 + i) - (unsigned char)*(s2 + i));
+		if (*(s1 + i) == 0)
+			return (0);
+		i++;
+	}
+	return (0);
 }
