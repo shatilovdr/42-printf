@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:12:43 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 19:23:32 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:40:50 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_print_x_low(va_list *args)
 	char			*hex;
 	int				len;
 
-	x = (unsigned int) va_arg(*args, void *);
+	x = va_arg(*args, unsigned int);
 	hex = ft_dec_to_hex(x, 0);
 	len = ft_putstr(hex);
 	free(hex);
@@ -51,7 +51,7 @@ int	ft_print_x_cap(va_list *args)
 	char			*hex;
 	int				len;
 
-	x = (unsigned int) va_arg(*args, void *);
+	x = va_arg(*args, unsigned int);
 	hex = ft_dec_to_hex(x, 1);
 	len = ft_putstr(hex);
 	free(hex);
