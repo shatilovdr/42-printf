@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:41:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/10 16:15:14 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:14:08 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ int	ft_switch(char *str, va_list *args)
 		return (ft_print_x_low(args));
 	else if (flag == 'X')
 		return (ft_print_x_cap(args));
-	else if (flag != '\0')
-		return (ft_putchar(flag));
-	return (0);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:23:19 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/10 16:02:54 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:13:03 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int	ft_printf(const char *str, ...)
 			return (-1);
 		len += cur_res;
 	}
+	va_end(args);
 	return (len);
 }
