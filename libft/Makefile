@@ -34,8 +34,8 @@ bonus: .bonus
 clean:
 	rm -f $(OBJ) $(OBJ_BNS)
 	rm -rf .bonus
-
-	n: clean
+	
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
