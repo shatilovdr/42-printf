@@ -1,0 +1,47 @@
+NAME = libftprintf.a
+
+SRCS = ft_printf.c ft_switch.c ft_print_char.c ft_putchar.c ft_print_str.c ft_putstr.c \
+	   ft_print_hex.c ft_numlenbase.c ft_dec_tobase.c ft_print_dec.c \
+
+OBJ = $(SRCS:.c=.o) 
+
+FLAGS = -Wall -Wextra -Werror
+
+all: .all
+
+
+
+.all: libft $(OBJ)
+	touch .all
+
+
+
+$(NAME): $(OBJ) 
+	ar -crs $(NAME) $(OBJ)
+
+%.o: %.c
+	cc $(FLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(OBJ_BNS)
+	$(MAKE) clean -C libft/
+	rm .libft
+	rm .all
+
+fclean: clean
+	rm -f $(NAME)
+	$(MAKE) fclean -C libft/
+
+re: fclean all
+
+libft: .libft
+
+.libft: libft/libft.a
+	cp ./libft/libft.a libftprintf.a
+	touch .libft
+
+libft/libft.a:
+	$(MAKE) -C libft/
+	$(MAKE) bonus -C libft/
+
+.PHONY: all, clean, fclean, re, libft

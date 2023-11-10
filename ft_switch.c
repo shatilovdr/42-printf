@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:41:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 18:09:46 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:15:14 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,17 @@ int	ft_switch(char *str, va_list *args)
 		return (ft_print_str(args));
 	else if (flag == 'p')
 		return (ft_print_ptr(args));
-	// else if (flag == 'd')
-	// 	printf("d\n");//do_decimal;
-	// else if (flag == 'i')
-	// 	printf("i\n");//do_integer;
-	// else if (flag == 'u')
-	// 	printf("u\n");//do_unsigned;
+	else if (flag == 'd')
+		return (ft_print_dec(args));
+	else if (flag == 'i')
+		return (ft_print_dec(args));
+	else if (flag == 'u')
+		return (ft_print_unsigned_dec(args));
 	else if (flag == 'x')
 		return (ft_print_x_low(args));
 	else if (flag == 'X')
 		return (ft_print_x_cap(args));
-	// else if (flag == '%')
-	// 	printf("5\n");//do_percent;
-	else 
-		printf("error");
-		//do_something
+	else if (flag != '\0')
+		return (ft_putchar(flag));
 	return (0);
 }

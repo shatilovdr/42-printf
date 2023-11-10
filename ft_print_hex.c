@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:12:43 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/08 21:40:50 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:28:37 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_print_ptr(va_list *args)
 	if (len == -1)
 		return (len);
 	hex = ft_dec_to_hex(ptr, 0);
+	if (!hex)
+		return (-1);
 	len = ft_putstr(hex);
 	free(hex);
 	if (len == -1)
@@ -40,6 +42,8 @@ int	ft_print_x_low(va_list *args)
 
 	x = va_arg(*args, unsigned int);
 	hex = ft_dec_to_hex(x, 0);
+	if (!hex)
+		return (-1);
 	len = ft_putstr(hex);
 	free(hex);
 	return (len);
@@ -53,6 +57,8 @@ int	ft_print_x_cap(va_list *args)
 
 	x = va_arg(*args, unsigned int);
 	hex = ft_dec_to_hex(x, 1);
+	if (!hex)
+		return (-1);
 	len = ft_putstr(hex);
 	free(hex);
 	return (len);
@@ -64,7 +70,5 @@ static char	*ft_dec_to_hex(unsigned long num, char mode)
 
 	base = "0123456789abcdef\0""0123456789ABCDEF";
 	base = base + (17 * mode);
-	return (ft_decimal_to_base_positive(num, base));
+	return (ft_dec_tobase(num, base));
 }
-
-
