@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:39:11 by dshatilo          #+#    #+#             */
-/*   Updated: 2023/11/09 11:32:37 by dshatilo         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:28:11 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h> //REMOVE ME!!!!!!!
 
 int		ft_printf(const char *str, ...);
-int		ft_switch(char *str, va_list *args);
+int		ft_switch(char **s, va_list *args);
 int		ft_print_char(va_list *args);
 int		ft_putchar(char c);
 int		ft_print_str(va_list *args);
